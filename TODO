@@ -1,0 +1,11 @@
+T00: make TODO file  
+T01: subroutine to make train/test/dev sets
+T02: create word embedding matrix
+T03: create full forward propagation and connect the cells
+T04: create backprop for single cells
+T05: create full backprop and connect the cells backwards
+T06: create ADAM optimizer subroutine
+T07: train system
+T08: Adjust hyperparamiters
+T09: Get the Paramiters saved and the system running on new data
+T10: Deploy WillBot
