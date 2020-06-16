@@ -2,14 +2,17 @@ import random
 import tensorflow as tf
 import numpy as np
 import re
+from keras.preprocessing import sequence
 
+regex = r"\[+\[+([^\]]+)\]+([^\]]+)\]+"
+regex = r"([^\t]*)\t([^\t]*)"
 
-f = open("data/data.txt")
-words = []
+f = open("data/data2.txt")
+words = set()
 wrd2idx = {}
 def text2words(text):
     text = (text.replace("\n"," "))
-    text = ((text.replace("]","").replace(",","").replace("[","").replace("`","").replace("\"","").replace("\\","").replace("/","").replace("\'","").replace("  "," ").lower()))
+    text = ((text.replace("]","").replace("*","").replace("~","").replace(",","").replace("[","").replace("`","").replace("\"","").replace("\\","").replace("/","").replace("\'","").replace("  "," ").lower()))
     while "  " in text:
         text = text.replace("  "," ")
     text = text.split(" ")
@@ -30,21 +33,25 @@ def text2words(text):
 i=0
 l = f.readline()
 while l:
-    for word in text2words(l):
-        if word.count(" ") != len(word):
-            if not word in words:
-                words.append(word)
-                wrd2idx[word] = i
-                i+=1
+    for x in re.findall(regex,l)[0]:
+        for word in text2words(x):
+            if word.count(" ") != len(word) and word != "":
+                if not word in words:
+                    words.add(word)
+                    wrd2idx[word] = i
+                    i+=1
     l = f.readline()
 f.close()
 
+input_token_index = dict(
+    [(char, i) for i, char in enumerate(words)])
 
+quit()
 f = open("data/data.txt")
 text = f.read()
 idx2wrd = np.array(words)
 
-data = [[x[0],x[1]] for x in re.findall(r"\[\[([^\]]+)\]([^\]]+)\]",text)]
+data = [[x[0],x[1]] for x in re.findall(regex,text)]
 
 
 def sigmoid(nump):
@@ -78,22 +85,40 @@ def split(data,splits):
     dev = data[splits[1]:splits[2]]
     return {"train":train,"test":test,"dev":dev}
 
-
+'''
 import tensorflow as tf
-
 import numpy as np
 import os
 import time
 
-tf.enable_eager_execution()
+emb_size = 64
+hidden_units = 32
+weight_len = 128
 
+
+tf.enable_eager_execution()
+maxlen = 0
+X=[]
+Y=[]
 examples_per_epoch = 200
-text_as_int = np.array([wrd2idx[w] for w in text2words(text)])
+for x in range(len(data)):
+    x1 = [wrd2idx[w] for w in text2words(data[x][0])]
+    x2 = [wrd2idx[w] for w in text2words(data[x][1])]
+    x1.append(i)
+    x2.append(i)
+    maxlen = len(x2) if len(x2)>maxlen 
+    maxlen = len(x1) if len(x1)>maxlen 
+    #v=x1
+    #v.append(i)
+    #for a in x2:
+    #    v.append(a)
+    #v.append(i+1)
+    X.append(x1)
+    Y.append(x2)
 
 # Create training examples / targets
-wrd_dataset = tf.data.Dataset.from_tensor_slices(text_as_int)
+darray = np.array(data)
+#dataset = sequence.pad_sequences(np.array(data), padding='post')
 
-for i in wrd_dataset.take(5):
-  print(idx2wrd[i.numpy()])
-
-sequences = char_dataset.batch(, drop_remainder=True)
+sentance = tf.placeholder(tf.int32.[1,maxlen])
+'''
