@@ -29,21 +29,8 @@ def preprocess_sentence(sentence):
 	return sentence
 
 
-def load_conversations():
-	# dictionary of line id to text
-	inputs,outputs = [],[]
-
-	with open("data3.txt") as f:
-		lines = f.read().split("\n")
-		for i in range(0,len(lines),2):
-			inputs.append(lines[i])
-			outputs.append(lines[i+1])
-
-	return inputs, outputs
 
 
-questions, answers = load_conversations()
-print("convos loaded")
 #questions = questions[:1024]
 #answers = answers[:1024]
 # Build tokenizer using tfds for both questions and answers
@@ -581,11 +568,11 @@ async def on_message(message):
             except:
                 messgaes[message.author.id] = 1
             
-            if message[message.author.id] > 3:
+            if messgaes[message.author.id] > 3:
                 rndbol = True
 
         if rndbol:
-            message[message.author.id] = 0
+            messgaes[message.author.id] = 0
     
     elif isinstance(message.channel, discord.TextChannel):
         rndbol = rndbol or (random.randrange(0,10)==1)
