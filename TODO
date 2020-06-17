@@ -43,5 +43,5 @@ T310: Change from fp32 to fp16 to allow RTX tensorcore optimization
 T311: Redeploy and test against WillbotV2
 
 WillbotV4: (In planning phase)
-T400: <ake WillBot physical (Hal?)
+T400: Make WillBot physical (Hal?)
 T401: Allow knowlegde collection on broader subjects (wikipedia formatting?)
