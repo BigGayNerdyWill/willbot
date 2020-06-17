@@ -1,11 +1,47 @@
-T00: make TODO file  
-T01: subroutine to make train/test/dev sets
-T02: create word embedding matrix
-T03: create full forward propagation and connect the cells
-T04: create backprop for single cells
-T05: create full backprop and connect the cells backwards
-T06: create ADAM optimizer subroutine
-T07: train system
-T08: Adjust hyperparamiters
-T09: Get the Paramiters saved and the system running on new data
-T10: Deploy WillBot
+WillbotV1: (Done)
+T100: make TODO file  
+T101: subroutine to make train/test/dev sets
+T102: create word embedding matrix
+T103: create full forward propagation and connect the cells
+T104: create backprop for single cells
+T105: create full backprop and connect the cells backwards
+T106: create ADAM optimizer subroutine
+T107: train system
+T108: Adjust hyperparamiters
+T109: Get the Paramiters saved and the system running on new data
+T110: Deploy WillBot
+
+WillbotV2: (Done)
+T200: Update hyperparamiters
+T201: Add More Layers
+T202: Implement cornell corpus dataset
+T203: Create checkpoints
+T204: Implement 2 phased training system
+T205: Regather data with "quirk" adjustment
+T206: Change inputs for more data
+T207: Add DM data
+T208: Increase Dictionary size and number of units to (25000~,2048)
+T209: Retrain
+T210: Update when it replies
+T211: Redeploy
+
+WillbotV3: (In coding phase) (Also waiting for better hardware so it can be ran within polynomial time)
+T300: Change data inputs to account for DMs and UserIds
+T301: Recive 10 messages at a time insted of 5
+T302: Change what it sees as a message
+T303: Create 3 Teired dataset
+T3030: Teir 0: 10M~ datapairs from various discord servers, DMs and Users
+T3031: Teir 1: 1M~ datapairs from close friends DMs and servers
+T3032: Teir 2: 30K~ datapairs from my Dms and Server messages
+T304: Change channels the rules on channels it can see
+T305: Remove personal data or data that could lead to issues
+T306: Give the robot Trauma
+T307: Adjust training times to (0:100,1:400,2:1000~)
+T308: Readjust hyperparamiters to account for possible variance errors
+T309: Reoptimize datastorage
+T310: Change from fp32 to fp16 to allow RTX tensorcore optimization
+T311: Redeploy and test against WillbotV2
+
+WillbotV4: (In planning phase)
+T400: <ake WillBot physical (Hal?)
+T401: Allow knowlegde collection on broader subjects (wikipedia formatting?)
