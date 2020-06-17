@@ -497,9 +497,11 @@ def predict(sentence):
 
 
 import discord,random,re,datetime
-WToxen = "NDcxNjgwMzIxNDE1NDEzNzYx.XsXIog.bVtw0uVFw34TLrnEeVOiGNE3X_s"
-W2Tokex = "NjkzOTY4MzM0MzI4Mjk5NTIw.XuUTiw.5fKoUCgoc8foLnhSp9fAz7uqvkE"
-TOKEN = 'NzA4MDQ0MTEyMDkxMjgzNDk2.XrS0qw.4Ck99so3nWvwiENZ58nvjguPmyY'
+f = open("tokens")
+
+WToxen = f.readline()
+W2Tokex = f.readline()
+TOKEN = f.readline()
 client = discord.Client()
 
 
