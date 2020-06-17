@@ -27,20 +27,21 @@ T211: Redeploy
 
 WillbotV3: (In coding phase) (Also waiting for better hardware so it can be ran within polynomial time)
 T300: Change data inputs to account for DMs and UserIds
-T301: Recive 10 messages at a time insted of 5
-T302: Change what it sees as a message
-T303: Create 3 Teired dataset
-T3030: Teir 0: 10M~ datapairs from various discord servers, DMs and Users
-T3031: Teir 1: 1M~ datapairs from close friends DMs and servers
-T3032: Teir 2: 30K~ datapairs from my Dms and Server messages
-T304: Change channels the rules on channels it can see
-T305: Remove personal data or data that could lead to issues
-T306: Give the robot Trauma
-T307: Adjust training times to (0:100,1:400,2:1000~)
-T308: Readjust hyperparamiters to account for possible variance errors
-T309: Reoptimize datastorage
-T310: Change from fp32 to fp16 to allow RTX tensorcore optimization
-T311: Redeploy and test against WillbotV2
+T301: Recive 10 messages at a time insted of 5 and only get messages from up to 20 mins ago
+T302: change inputs to (time of message, first UserID, last UserID, words in msg 1 ... words in msg 10)
+T303: Change what it sees as a message
+T304: Create 3 Teired dataset
+T3040: Teir 0: 10M~ datapairs from various discord servers, DMs and Users
+T3041: Teir 1: 1M~ datapairs from close friends DMs and servers
+T3042: Teir 2: 30K~ datapairs from my Dms and Server messages
+T305: Change channels the rules on channels it can see
+T306: Remove personal data or data that could lead to issues
+T307: Give the robot Trauma
+T308: Adjust training times to (0:100,1:400,2:1000~)
+T309: Readjust hyperparamiters to account for possible variance errors
+T310: Reoptimize datastorage
+T311: Change from fp32 to fp16 to allow RTX tensorcore optimization
+T312: Redeploy and test against WillbotV2
 
 WillbotV4: (In planning phase)
 T400: Make WillBot physical (Hal?)
